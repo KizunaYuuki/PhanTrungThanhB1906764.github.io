@@ -52,8 +52,9 @@ exports.authenticate = async (req, res, next) => {
         store( "username", document.username );
         return res.send(document);
     }
-    else
-        return res.send("username or password not match");
+    // stop
+    // else
+    //     return res.send("username or password not match");
 }
 
 exports.logout = async (req, res, next) => {

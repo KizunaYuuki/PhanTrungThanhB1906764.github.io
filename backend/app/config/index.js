@@ -4,6 +4,8 @@ const config = {
     },
     db: {
         uri: process.env.MONGODB_URI || "mongodb+srv://mongo:mongo@cluster0.5dw7dn2.mongodb.net/?retryWrites=true&w=majority"
+        // connect string localhost
+        // mongodb://127.0.0.1:27017/
     }
 };
 module.exports = config;
