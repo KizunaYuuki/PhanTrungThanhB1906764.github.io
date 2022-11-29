@@ -28,7 +28,7 @@ export default {
         async loginUser(data) {
             try {
                 await TodoService.login(data);
-                this.message = "Đăng nhập thành công. Trang web sẽ tự động đi đến trang chủ trong 3 giây nữa!"
+                this.message = "Đăng nhập thành công"
                 setTimeout(function () { window.location.href = "/" }, 10)
                 document.getElementById("btnlogin").innerText = data.username
                 localStorage.setItem('username', data.username);
