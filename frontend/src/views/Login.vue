@@ -21,7 +21,7 @@ export default {
     data() {
         return {
             user: {},
-            message: "",
+            message: localStorage.getItem('username'),
         };
     },
     methods: {
@@ -29,7 +29,9 @@ export default {
             try {
                 await TodoService.login(data);
                 this.message = "Đăng nhập thành công. Trang web sẽ tự động đi đến trang chủ trong 3 giây nữa!"
-                setTimeout(function () { window.location.href = "/" }, 3000)
+                setTimeout(function () { window.location.href = "/" }, 10)
+                document.getElementById("btnlogin").innerText = data.username
+                localStorage.setItem('username', data.username);
             } catch (error) {
                 console.log(error);
             }

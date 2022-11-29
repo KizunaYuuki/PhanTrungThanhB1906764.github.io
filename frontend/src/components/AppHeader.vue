@@ -4,6 +4,8 @@
         <div class="mr-auto navbar-nav">
             <!-- Tạo khoản cách -->
         </div>
+        <a id="btnlogin" style="color: white;">{{ message }}</a>
+        
         <router-link :to="{ name: 'login' }" class="nav-link navbar-brand" title="Login">
             <i class="fa-solid fa-right-to-bracket"></i>
         </router-link>
@@ -13,19 +15,22 @@
 </template>
 
 <script>
+
 import TodoService from "@/services/todo.service";
 export default {
     data() {
         return {
             message: "",
+            temp: localStorage.getItem("username")
         };
     },
     methods: {
         async logoutUser() {
             try {
                 await TodoService.logout();
-                this.message = "Đăng xuất thành công. Trang web sẽ tự động đi đến trang Đăng nhập trong 3 giây nữa!"
-                setTimeout(function () { window.location.href = "/" }, 3000)
+                this.message = "";
+                // setTimeout(function () { window.location.href = "/" }, 3000)
+                localStorage.setItem("username", "")
             } catch (error) {
                 console.log(error);
             }

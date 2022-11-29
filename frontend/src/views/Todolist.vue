@@ -96,6 +96,8 @@ export default {
             }
         },
         refreshList() {
+            if(localStorage.getItem("username"))
+                document.getElementById("btnlogin").innerText = localStorage.getItem("username")
             this.retrieveTodos();
             this.activeIndex = -1;
         },
